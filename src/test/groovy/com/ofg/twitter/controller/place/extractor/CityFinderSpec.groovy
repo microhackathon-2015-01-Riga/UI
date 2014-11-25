@@ -1,6 +1,5 @@
 package com.ofg.twitter.controller.place.extractor
 
-import com.ofg.twitter.controller.place.Place
 import org.springframework.web.client.RestOperations
 import spock.lang.Specification
 

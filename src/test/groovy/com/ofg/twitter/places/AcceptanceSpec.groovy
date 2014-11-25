@@ -1,13 +1,13 @@
 package com.ofg.twitter.places
-import com.github.tomakehurst.wiremock.client.UrlMatchingStrategy
+
 import com.ofg.base.MicroserviceMvcWiremockSpec
+import com.ofg.twitter.config.Versions
 import org.hamcrest.CoreMatchers
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.test.context.ContextConfiguration
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo
 import static com.jayway.awaitility.Awaitility.await
 import static com.ofg.infrastructure.base.dsl.Matchers.equalsReferenceJson
 import static com.ofg.infrastructure.base.dsl.WireMockHttpRequestMapper.wireMockGet
@@ -24,11 +24,9 @@ class AcceptanceSpec extends MicroserviceMvcWiremockSpec {
 
     @Autowired ColleratorClientStub colleratorClientStub
 
-    static final String ROOT_PATH = '/api'
-    static final Long PAIR_ID = 1
-    static final MediaType TWITTER_PLACES_ANALYZER_MICROSERVICE_V1 = new MediaType('application', 'vnd.com.ofg.twitter-places-analyzer.v1+json')
-    static final String COLLERATOR_ENPOINT_URL = '/collerator'
-    static final UrlMatchingStrategy COLLERATOR_URL_WITH_PAIR_ID = urlEqualTo("$COLLERATOR_ENPOINT_URL/$PAIR_ID")
+    private static final String ROOT_PATH = '/api'
+    private static final Long PAIR_ID = 1
+    private static final MediaType TWITTER_PLACES_ANALYZER_MICROSERVICE_V1 = new MediaType('application', Versions.TWITTER_PLACES_ANALYZER_JSON_VERSION_1)
 
     def "should find a place by verifying tweet's geolocation"() {
         given: 'a tweet with a place section filled in'

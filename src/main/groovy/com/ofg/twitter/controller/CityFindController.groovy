@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController
 
 import javax.validation.constraints.NotNull
 
+import static com.ofg.twitter.config.Versions.TWITTER_PLACES_ANALYZER_JSON_VERSION_1_CONTENT_TYPE
 import static org.springframework.web.bind.annotation.RequestMethod.POST
 
 @Slf4j
@@ -19,13 +20,17 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST
 @Api(value = "city", description = "Operations on cities")
 class CityFindController {
 
-    @Autowired private CityFinder cityFinder
+    private final CityFinder cityFinder
+
+    @Autowired CityFindController(CityFinder cityFinder) {
+        this.cityFinder = cityFinder
+    }
 
     @RequestMapping(
             value = '/{lat}/{lon}',
             method = POST,
-            consumes = 'application/vnd.com.ofg.twitter-places-analyzer.v1+json',
-            produces = 'application/vnd.com.ofg.twitter-places-analyzer.v1+json')
+            consumes = TWITTER_PLACES_ANALYZER_JSON_VERSION_1_CONTENT_TYPE,
+            produces = TWITTER_PLACES_ANALYZER_JSON_VERSION_1_CONTENT_TYPE)
     @ApiOperation(value = "Gets city name from the coordinates",
             notes = "The code calls openweather to get the city")
     String findCity(@PathVariable("lat") @NotNull Double lat, @PathVariable("lon") @NotNull Double lon) {

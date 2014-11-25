@@ -2,15 +2,12 @@ package com.ofg.twitter.controller.place.extractor
 import com.codahale.metrics.Meter
 import com.codahale.metrics.MetricRegistry
 import com.ofg.infrastructure.web.resttemplate.fluent.ServiceRestClient
-import com.ofg.infrastructure.web.resttemplate.RestTemplate
-import com.ofg.twitter.controller.place.PlacesJsonBuilder
 import com.ofg.twitter.controller.place.extractor.metrics.ExtractorMetricsConfiguration
 import com.ofg.twitter.controller.place.extractor.metrics.MatchProbabilityMetrics
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
-import org.springframework.web.client.RestTemplate
 
 @Configuration
 @Import(ExtractorMetricsConfiguration)
