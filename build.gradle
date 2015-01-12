@@ -34,11 +34,11 @@ ext {
     
     groovyVersion = '2.3.7'
     spockVersion = '0.7-groovy-2.0'
-    springBootVersion = '1.1.8.RELEASE'
+    springBootVersion = '1.1.10.RELEASE'
     springVersion = '4.1.3.RELEASE'
     jacksonMapper = '1.9.13'
     aspectjVersion = '1.8.3'
-    microInfraSpringVersion = '0.7.1'
+    microInfraSpringVersion = '0.8.1'
 }
 
 configurations {
@@ -128,7 +128,9 @@ dependencies {
     compile 'org.codehaus.gpars:gpars:1.2.1'
     compile 'net.sf.ehcache:ehcache:2.9.0'
     // microservices
-    compile "com.ofg:micro-infra-spring-boot-starter:$microInfraSpringVersion"
+    compile ("com.ofg:micro-infra-spring-boot-starter:$microInfraSpringVersion") {
+        exclude module: "micro-infra-spring-config" //remove exclude to have centralized configuration enabled
+    }
 
     runtime "cglib:cglib-nodep:3.1"
     runtime "org.objenesis:objenesis:2.1" // allows mocking of classes without default constructor (together with CGLIB)
