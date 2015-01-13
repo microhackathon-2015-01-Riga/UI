@@ -1,8 +1,10 @@
 {
-    "pl": {
-        "this": "com/ofg/twitter-places-analyzer",
-        "dependencies": {
-            "collerator": "com/ofg/twitter-places-collerator"
-        }
-    }
+	"pl": 
+	{
+		"this": "com/ofg/ui",
+		"dependencies": 
+		{
+			"loanApplication": "com/ofg/loan-application-service"
+		}
+	}
 }

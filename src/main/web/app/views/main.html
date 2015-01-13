@@ -10,6 +10,7 @@
     <h4>Find the city</h4>
 
     <form role="form">
+        <!--
         <div class="form-group">
             <label for="latitude">Latitude</label>
             <input type="text" class="form-control" id="latitude" placeholder="Latitude" ng-model="coords.lat">
@@ -18,7 +19,12 @@
             <label for="longtitude">Longtitude</label>
             <input type="text" class="form-control" id="longtitude" placeholder="Longtitude" ng-model="coords.lon">
         </div>
-        <button type="button" class="btn btn-default" ng-click="findCity()">Find</button>
+    -->
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="First name" ng-model="loanApplication.firstName">
+        </div>
+        <button type="button" class="btn btn-default" ng-click="send()">Find</button>
     </form>
 
     <hr/>
