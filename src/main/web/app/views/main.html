@@ -7,29 +7,26 @@
 
     <p class="lead">
 
-    <h4>Find the city</h4>
+    <h4>Apply for the loan</h4>
 
     <form role="form">
-        <!--
-        <div class="form-group">
-            <label for="latitude">Latitude</label>
-            <input type="text" class="form-control" id="latitude" placeholder="Latitude" ng-model="coords.lat">
-        </div>
-        <div class="form-group">
-            <label for="longtitude">Longtitude</label>
-            <input type="text" class="form-control" id="longtitude" placeholder="Longtitude" ng-model="coords.lon">
-        </div>
-    -->
         <div class="form-group">
             <label for="firstName">First name</label>
             <input type="text" class="form-control" id="firstName" placeholder="First name" ng-model="loanApplication.firstName">
         </div>
-        <button type="button" class="btn btn-default" ng-click="send()">Find</button>
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="Last name" ng-model="loanApplication.lastName">
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text" class="form-control" id="age" placeholder="Age" ng-model="loanApplication.age">
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control" id="amount" placeholder="Amount" ng-model="loanApplication.amount">
+        </div>
+        <button type="button" class="btn btn-default" ng-click="send()">Apply</button>
     </form>
 
-    <hr/>
-
-    <div class="well">
-        The city you are looking for is: {{city}}
-    </div>
 </div>
